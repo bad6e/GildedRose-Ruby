@@ -51,7 +51,7 @@ class AgedBrieTest < Minitest::Test
   def test_test_fixture_data
     items = [Item.new("Aged Brie", 2, 0)]
     GildedRose.new(items).update_quality()
-    assert_equal(1, items.fetch(0).quality)
     assert_equal(1, items.fetch(0).sell_in)
+    assert_equal(1, items.fetch(0).quality)
   end
 end
