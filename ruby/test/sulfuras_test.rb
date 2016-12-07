@@ -32,12 +32,14 @@ class SulfurasTest < Minitest::Test
     end
   end
 
-  def test_test_fixture_data
+  def test_test_fixture_data_one
     items_one = [Item.new("Sulfuras, Hand of Ragnaros", 0, 80)]
     GildedRose.new(items_one).update_quality()
     assert_equal(0, items_one.fetch(0).sell_in)
     assert_equal(80, items_one.fetch(0).quality)
+  end
 
+  def test_test_fixture_data_two
     items_two = [Item.new("Sulfuras, Hand of Ragnaros", 1, 80)]
     GildedRose.new(items_two).update_quality()
     assert_equal(1, items_two.fetch(0).sell_in)
