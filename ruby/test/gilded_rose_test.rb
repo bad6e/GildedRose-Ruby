@@ -1,9 +1,8 @@
-require File.join(File.dirname(__FILE__), 'gilded_rose')
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'pry'
+require_relative "test_helper"
+require "./lib/gilded_rose"
+require "./lib/item"
 
-class TestUntitled < Minitest::Test
+class GildedRoseTest < Minitest::Test
   ## What do we know about aged brie
 
   #1. It has a sell_in value - which denotes the number of days we have to sell the item
@@ -230,7 +229,7 @@ class TestUntitled < Minitest::Test
     assert_equal(5, items.fetch(0).quality)
   end
 
-   def test_when_wolf_tshirt_sell_in_date_reaches_less_than_0_quality_decreases_twice_as_fast_but_never_negative
+  def test_when_wolf_tshirt_sell_in_date_reaches_less_than_0_quality_decreases_twice_as_fast_but_never_negative
     items = [ Item.new("Wolf T-Shirt", -1, 1) ]
     GildedRose.new(items).update_quality()
     assert_equal(0, items.fetch(0).quality)
