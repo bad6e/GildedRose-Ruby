@@ -8,6 +8,7 @@ class Conjured
     @item    = item
     @sell_in = item.sell_in
     @quality = item.quality
+    check_quality
   end
 
   def check_quality

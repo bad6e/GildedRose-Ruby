@@ -8,6 +8,7 @@ class BackStagePass
     @item    = item
     @sell_in = item.sell_in
     @quality = item.quality
+    check_sell_in_days_remaining
   end
 
   def check_sell_in_days_remaining
