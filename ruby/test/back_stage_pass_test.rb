@@ -1,7 +1,7 @@
 require_relative "test_helper"
 
 class BackStagePassTest < Minitest::Test
-  def test_back_stage_passes_sell_in_value_decreases_by_1_at_the_end_of_each_day
+  def test_back_stage_passes_sell_in_decreases_by_1_at_the_end_of_each_day
     item = Item.new("Backstage passes to a TAFKAL80ETC concert", 2, 5)
     BackStagePass.new(item)
     assert_equal(1, item.sell_in)
@@ -67,21 +67,21 @@ class BackStagePassTest < Minitest::Test
     assert_equal(50, item.quality)
   end
 
-  def test_test_fixture_data_1
+  def test_text_fixture_data_1
     item = Item.new("Backstage passes to a TAFKAL80ETC concert", 15, 20)
     BackStagePass.new(item)
     assert_equal(14, item.sell_in)
     assert_equal(21, item.quality)
   end
 
-  def test_test_fixture_data_2
+  def test_text_fixture_data_2
     item = Item.new("Backstage passes to a TAFKAL80ETC concert", 10, 49)
     BackStagePass.new(item)
     assert_equal(9, item.sell_in)
     assert_equal(50, item.quality)
   end
 
-  def test_test_fixture_data_3
+  def test_text_fixture_data_3
     item = Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 49)
     BackStagePass.new(item)
     assert_equal(4, item.sell_in)

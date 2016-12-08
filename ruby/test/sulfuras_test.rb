@@ -7,7 +7,7 @@ class SulfurasTest < Minitest::Test
     assert_equal(2, item.sell_in)
   end
 
-  def test_sulfuras_quality_never_changes_and_it_is_at_80
+  def test_sulfuras_quality_never_changes_and_it_is_at_80_when_set_at_80
     item = Item.new("Sulfuras, Hand of Ragnaros", 20, 80)
     Sulfuras.new(item)
     assert_equal(80, item.quality)
@@ -29,14 +29,14 @@ class SulfurasTest < Minitest::Test
     end
   end
 
-  def test_test_fixture_data_one
+  def test_text_fixture_data_one
     item_one = Item.new("Sulfuras, Hand of Ragnaros", 0, 80)
     Sulfuras.new(item_one)
     assert_equal(0, item_one.sell_in)
     assert_equal(80, item_one.quality)
   end
 
-  def test_test_fixture_data_two
+  def test_text_fixture_data_two
     item_two = Item.new("Sulfuras, Hand of Ragnaros", 1, 80)
     Sulfuras.new(item_two)
     assert_equal(1, item_two.sell_in)

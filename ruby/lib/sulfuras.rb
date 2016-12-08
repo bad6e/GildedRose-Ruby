@@ -1,4 +1,4 @@
-class Sulfuras < Item
+class Sulfuras
   def initialize(item)
     @item = item
   end
