@@ -1,9 +1,9 @@
 require_relative "test_helper"
 require "./lib/gilded_rose"
 require "./lib/item"
-require "./lib/generic_item"
+require "./lib/normal_item"
 
-class GildedRoseTest < Minitest::Test
+class NormalItemTest < Minitest::Test
   def test_wolf_tshirt_sell_in_value_decreases_by_1_at_the_end_of_each_day
     items = [Item.new("Wolf T-Shirt", 2, 5)]
     GildedRose.new(items).update_quality()
@@ -23,11 +23,9 @@ class GildedRoseTest < Minitest::Test
   end
 
   def test_wolf_tshirt_qal_will_never_be_negative
-    items = [Item.new("Wolf T-Shirt", 10, 0)]
-    51.times do
-      GildedRose.new(items).update_quality()
-      assert(0 <= items.fetch(0).quality)
-    end
+    items = [Item.new("Wolf T-Shirt", 1, 0.5)]
+    GildedRose.new(items).update_quality()
+    assert_equal(0, items.fetch(0).quality)
   end
 
   def test_when_wolf_tshirt_sell_in_date_reaches_0_qal_decreases_twice_as_fast
@@ -43,7 +41,7 @@ class GildedRoseTest < Minitest::Test
   end
 
   def test_when_wolf_tshirt_sell_in_date_is_than_0_qal_decreases_twice_as_fast_but_never_negative
-    items = [Item.new("Wolf T-Shirt", -1, 1)]
+    items = [Item.new("Wolf T-Shirt", -1, 0.5)]
     GildedRose.new(items).update_quality()
     assert_equal(0, items.fetch(0).quality)
   end
