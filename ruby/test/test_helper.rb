@@ -1,7 +1,3 @@
-require 'rubygems'
-gem 'mocha'
-require 'test/unit'
-require 'mocha/test_unit'
 require "minitest/autorun"
 require "minitest/pride"
 require "pry"

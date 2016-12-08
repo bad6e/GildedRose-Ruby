@@ -1,7 +1,6 @@
 require_relative "test_helper"
 
 class ItemTest < Minitest::Test
-
   def setup
     @item = Item.new("test_name", 2, 3)
   end
