@@ -13,7 +13,7 @@ class AgedBrie
 
   def check_quality
     if quality <= 49 && items_sell_in_days_is_positive
-       increase_item_quality_by_a_factor_of(1)
+      increase_item_quality_by_a_factor_of(1)
     elsif quality <= 48
       increase_item_quality_by_a_factor_of(2)
     else
