@@ -1,42 +1,23 @@
 class GildedRose
+  attr_accessor :items
+
   def initialize(items)
     @items = items
   end
 
   def update_quality()
     @items.each do |item|
-      check_item_type(item)
+      check_type_of_item_and_call(item)
     end
   end
 
   private
 
-  def check_item_type(item)
-    if item_options.include?(item.name)
-      route_to_correct_item(item)
-    else
-      NormalItem.new(item).check_quality
-    end
-  end
-
-  def route_to_correct_item(item)
-    if item.name == "Aged Brie"
-      AgedBrie.new(item).check_quality
-    elsif item.name == "Sulfuras, Hand of Ragnaros"
-      Sulfuras.new(item)
-    elsif item.name == "Conjured"
-      Conjured.new(item).check_quality
-    else
-      BackStagePass.new(item).check_sell_in_days_remaining
-    end
-  end
-
-  def item_options
-    [
-      "Backstage passes to a TAFKAL80ETC concert",
-      "Sulfuras, Hand of Ragnaros",
-      "Aged Brie",
-      "Conjured"
-    ]
+  def check_type_of_item_and_call(item)
+    return AgedBrie.new(item) if item.name == "Aged Brie"
+    return Sulfuras.new(item) if item.name == "Sulfuras, Hand of Ragnaros"
+    return Conjured.new(item) if item.name == "Conjured"
+    return BackStagePass.new(item) if item.name == "Backstage passes to a TAFKAL80ETC concert"
+    NormalItem.new(item)
   end
 end
