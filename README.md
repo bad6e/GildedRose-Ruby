@@ -7,7 +7,7 @@ cd ruby
 ```
 I decided to take a class approach to this problem, breaking out the responsibilities of each item to its own respective class. I decided on this to allow for more flexibility when adding new items at a later point. I did not touch the Item class for fear of being attacked by the Goblin.
 
-For methods that were used across classes, I created a CommonItemsMethods module and had the classes inherit them.
+For methods that were used across classes, I created a CommonItemsMethods module and had them included in the classes.
 
 ## Testing - Minitest
 
