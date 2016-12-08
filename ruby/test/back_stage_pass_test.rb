@@ -55,13 +55,13 @@ class BackStagePassTest < Minitest::Test
     assert_equal(50, item.quality)
   end
 
-  def test_back_stage_passes_qal_will_never_increase_above_50_even_when_close_to_concert_less_than_5_days
+  def test_back_stage_passes_qal_will_never_increase_above_50__when_less_than_5_days_to_concert
     item = Item.new("Backstage passes to a TAFKAL80ETC concert", 3, 49.5)
     BackStagePass.new(item)
     assert_equal(50, item.quality)
   end
 
-   def test_back_stage_passes_qal_will_never_increase_above_50_even_when_close_to_concert_less_than_10_days
+  def test_back_stage_passes_qal_will_never_increase_above_50_when_less_than_10_days_to_concert
     item = Item.new("Backstage passes to a TAFKAL80ETC concert", 7, 49.5)
     BackStagePass.new(item)
     assert_equal(50, item.quality)
