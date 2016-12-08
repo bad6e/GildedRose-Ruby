@@ -8,10 +8,11 @@ class AgedBrie
     @item    = item
     @sell_in = item.sell_in
     @quality = item.quality
-    check_quality
+    check_and_adjust_aged_brie_quality
+    lower_sell_in_days_remaining_by_one
   end
 
-  def check_quality
+  def check_and_adjust_aged_brie_quality
     if quality <= 49 && items_sell_in_days_is_positive
       increase_item_quality_by_a_factor_of(1)
     elsif quality <= 48
@@ -19,6 +20,5 @@ class AgedBrie
     else
       adjust_item_quality_to_fifty
     end
-    lower_sell_in_days_remaining_by_one
   end
 end
