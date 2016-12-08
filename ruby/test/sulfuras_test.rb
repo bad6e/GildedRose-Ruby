@@ -1,7 +1,4 @@
 require_relative "test_helper"
-require "./lib/gilded_rose"
-require "./lib/item"
-require "./lib/sulfuras"
 
 class SulfurasTest < Minitest::Test
   def test_sulfuras_sell_in_value_never_decreases_at_the_end_of_each_day

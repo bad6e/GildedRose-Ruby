@@ -1,7 +1,4 @@
 require_relative "test_helper"
-require "./lib/gilded_rose"
-require "./lib/item"
-require "./lib/back_stage_pass"
 
 class BackStagePassTest < Minitest::Test
   def test_back_stage_passes_sell_in_value_decreases_by_1_at_the_end_of_each_day

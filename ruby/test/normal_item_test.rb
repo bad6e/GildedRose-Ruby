@@ -1,7 +1,4 @@
 require_relative "test_helper"
-require "./lib/gilded_rose"
-require "./lib/item"
-require "./lib/normal_item"
 
 class NormalItemTest < Minitest::Test
   def test_wolf_tshirt_sell_in_value_decreases_by_1_at_the_end_of_each_day

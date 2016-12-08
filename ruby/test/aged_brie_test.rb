@@ -1,7 +1,4 @@
 require_relative "test_helper"
-require "./lib/gilded_rose"
-require "./lib/item"
-require "./lib/aged_brie"
 
 class AgedBrieTest < Minitest::Test
   def test_aged_brie_sell_in_value_decreases_by_1_at_the_end_of_each_day
