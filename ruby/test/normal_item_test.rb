@@ -37,7 +37,7 @@ class NormalItemTest < Minitest::Test
     assert_equal(5, item.quality)
   end
 
-  def test_when_wolf_tshirt_sell_in_date_is_less_than_0_qal_decreases_twice_as_fast_but_never_negative
+  def test_when_wolf_tshirt_sell_in_date_less_than_0_qal_decreases_twice_as_fast_but_never_negative
     item = Item.new("Wolf T-Shirt", -1, 0.5)
     NormalItem.new(item)
     assert_equal(0, item.quality)

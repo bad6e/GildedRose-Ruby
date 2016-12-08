@@ -1,5 +1,5 @@
 require_relative "./common_item_methods"
-require 'pry'
+
 class NormalItem
   include CommonItemsMethods
   attr_accessor :item, :sell_in, :quality
