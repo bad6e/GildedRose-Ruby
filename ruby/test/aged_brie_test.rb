@@ -17,23 +17,22 @@ class AgedBrieTest < Minitest::Test
   end
 
   def test_aged_brie_quality_will_never_increase_above_50
-    items = [Item.new("Aged Brie", 10, 50)]
+    items = [Item.new("Aged Brie", 10, 49.5)]
     GildedRose.new(items).update_quality()
     assert_equal(50, items.fetch(0).quality)
   end
 
   def test_aged_brie_quality_will_never_increase_above_50_even_with_negative_sell_in_date
-    items = [Item.new("Aged Brie", -100, 50)]
+    items = [Item.new("Aged Brie", -100, 48.5)]
     GildedRose.new(items).update_quality()
     assert_equal(50, items.fetch(0).quality)
   end
 
   def test_aged_brie_quality_will_never_be_negative
+    #
     items = [Item.new("Aged Brie", 10, 0)]
-    51.times do
-      GildedRose.new(items).update_quality()
-      assert(0 <= items.fetch(0).quality)
-    end
+    GildedRose.new(items).update_quality()
+    assert(1, items.fetch(0).quality)
   end
 
   def test_when_aged_brie_sell_in_date_reaches_0_quality_increase_twice_as_fast

@@ -1,15 +1,23 @@
-class AgedBrie < Item
+require_relative "./common_item_methods"
+
+class AgedBrie
+  include CommonItemsMethods
+  attr_accessor :item, :sell_in, :quality
+
   def initialize(item)
-    @item = item
-    check_quality(item)
-    lower_sell_in_day_by_one(item)
+    @item    = item
+    @sell_in = item.sell_in
+    @quality = item.quality
   end
 
-  def check_quality(item)
-    if items_sell_in_days_is_positive(item)
-      increase_item_quality_by_factor(item, 1) unless item.quality == 50
+  def check_quality
+    if quality <= 49 && items_sell_in_days_is_positive
+       increase_item_quality_by_a_factor_of(1)
+    elsif quality <= 48
+      increase_item_quality_by_a_factor_of(2)
     else
-      increase_item_quality_by_factor(item, 2) unless item.quality == 50
+      adjust_item_quality_to_fifty
     end
+    lower_sell_in_days_remaining_by_one
   end
 end
